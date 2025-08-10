@@ -1,0 +1,66 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migrations (optional: you might want to track these if working in a team)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+# Usually, keep migration scripts but ignore compiled files
+
+# Environment variables and virtual environments
+.env
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm project files
+.idea/
+
+# VSCode project files
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+#TODO or not TODO
+# Static files and media (optional: if these are generated)
+#staticfiles/
+#media/
+
+# SQLite database (if using SQLite locally)
+db.sqlite3
+
+# Logs
+*.log
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Unit test / coverage reports
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# IDE specific files
+*.idea/
+*.sublime-project
+*.sublime-workspace
