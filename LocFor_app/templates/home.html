@@ -1,4 +1,68 @@
-{%  extends "base.html" %} {%  block title %} Home Page {% endblock %}
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
 {% block content %}
-<p>This is the Homepage</p>
-{%  endblock %}
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+  /* Center the form horizontally at the top */
+  .form-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0; /* space from top */
+  }
+
+  form {
+    display: flex;
+    gap: 10px;
+  }
+
+  input#location {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  input#location:focus {
+    border-color: #007BFF;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 10px 25px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #333333;
+  }
+</style>
+
+<div class="form-container">
+  <form method="GET" action="{% url 'home' %}">
+    <label for="location" class="sr-only">Location</label>
+    <input id="location" name="location" type="text" placeholder="Enter location" required />
+    <button type="submit">Forecast</button>
+  </form>
+</div>
+
+{% if forecast_result %}
+  <p>Forecast for {{ location }}: {{ forecast_result }}</p>
+{% endif %}
+
+{% endblock %}

@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from LocFor_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("LocFor_app.urls")),
+    path('about/', views.about, name='about'),
+    path('contact/', views.about, name='contact')
+
 ]
