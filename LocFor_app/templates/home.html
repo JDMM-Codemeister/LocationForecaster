@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Home Page {% endblock %}
+{% block title %}Home Page{% endblock %}
 
 {% block content %}
 <style>
@@ -13,11 +13,12 @@
     clip: rect(0,0,0,0);
     border: 0;
   }
+
   /* Center the form horizontally at the top */
   .form-container {
     display: flex;
     justify-content: center;
-    padding: 20px 0; /* space from top */
+    padding: 20px 0;
   }
 
   form {
@@ -54,7 +55,7 @@
 </style>
 
 <div class="form-container">
-  <form method="GET" action="{% url 'home' %}">
+  <form method="GET" action="{% url 'home' %}" id="locationForm">
     <label for="location" class="sr-only">Location</label>
     <input id="location" name="location" type="text" placeholder="Enter location" required />
     <button type="submit">Forecast</button>
@@ -62,7 +63,33 @@
 </div>
 
 {% if forecast_result %}
-  <p>Forecast for {{ location }}: {{ forecast_result }}</p>
+  <p style="text-align:center;">Forecast for {{ location }}: {{ forecast_result }}</p>
 {% endif %}
 
+<div id="map" style="height: 400px; width: 100%;"></div>
+
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+let map = L.map('map').setView([20, 0], 2);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// If location provided by Django, geocode and move map
+{% if location %}
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q={{ location|urlencode }}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                let lat = parseFloat(data[0].lat);
+                let lon = parseFloat(data[0].lon);
+                map.setView([lat, lon], 13);
+                L.marker([lat, lon]).addTo(map).bindPopup("{{ location }}").openPopup();
+            }
+        });
+{% endif %}
+</script>
 {% endblock %}
