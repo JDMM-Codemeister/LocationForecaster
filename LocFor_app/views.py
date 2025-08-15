@@ -31,6 +31,15 @@ def home(request):
 
         llm_response = completion.choices[0].message.content
 
+
+        #TODO Add image generation for city/year
+        #image_response = client.images.generate(
+        #    model="gpt-image-1",
+        #    prompt="A cute cat floating in space with planets around",
+        #    size="512x512"
+        #)
+        #image_url = image_response.data[0].url
+
     return render(request, 'home.html', {
         "location": location,
         "forecast_result": llm_response
