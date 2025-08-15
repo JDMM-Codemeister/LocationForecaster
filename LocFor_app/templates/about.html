@@ -1,4 +1,44 @@
 {%  extends "base.html" %} {%  block title %} About {% endblock %}
+
 {% block content %}
-<p>About</p>
-{%  endblock %}
+<main class="container" style="max-width: 920px; margin: 0 auto; padding: 2rem 1rem;">
+  <section style="text-align: center; margin-bottom: 2rem;">
+    <h1 style="margin: 0 0 .5rem 0;">About Location Forecaster</h1>
+    <p style="margin: 0; opacity: .8;">
+      Leveraging AI to help you survive in the anthropocene
+    </p>
+  </section>
+
+  <section style="border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem; margin-bottom: 2rem;">
+    <h2 style="margin-top: 0;">What Is Location Forecaster</h2>
+    <p>
+      Location Forecaster is designed to bring you peace of mind in a rapidly changing world. <br>
+        Whether you're planning a move or looking to shore up your family home, don't do it uninformed. <br>
+        Location Forecaster uses state-of-the-art AI to give you the climactic and socioeconomic insights you need.
+    </p>
+  </section>
+
+  <section style="border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem; margin-bottom: 2rem;">
+    <h2 style="margin-top: 0;">Key Features</h2>
+    <ul style="padding-left: 1.1rem; margin: 0;">
+      <li>Global coverage for <strong>AI-powered forecasts</strong></li>
+      <li>A user-friendly interface for <strong>easy contingency planning</strong></li>
+      <li>A world-renowned AI to help you <strong>stay informed</strong></li>
+    </ul>
+  </section>
+
+  <section style="border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem; margin-bottom: 2rem;">
+    <h2 style="margin-top: 0;">Why Use It</h2>
+    <p>
+      You wouldn't go to the beach if you knew a tsunami was coming, so don't move somewhere where <br>
+        your children will have to battle <strong>apocalyptic road warriors</strong> on their way to the local atmospheric water generator.
+    </p>
+  </section>
+
+  <section style="text-align: center;">
+    <a href="{% url 'home' %}" style="display: inline-block; color: black; padding: .75rem 1rem; border-radius: .75rem; border: 1px solid #000000; text-decoration: none;">
+      Try it now
+    </a>
+  </section>
+</main>
+{% endblock %}

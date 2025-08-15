@@ -1,4 +1,26 @@
-{%  extends "base.html" %} {%  block title %} Contact {% endblock %}
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+
 {% block content %}
-<p>Contact Information</p>
-{%  endblock %}
+<main class="container" style="max-width: 920px; margin: 0 auto; padding: 2rem 1rem;">
+  <section style="text-align: center; margin-bottom: 2rem;">
+    <h1 style="margin: 0 0 .5rem 0;">Contact Your Local Representative</h1>
+    <p style="margin: 0; opacity: .8;">
+      Help decide the future of your city. Reach out to your local representative directly.
+    </p>
+  </section>
+
+  <section style="border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem; margin-bottom: 2rem;">
+    <h2 style="margin-top: 0;">Local Representative Details</h2>
+    <p><strong>Name:</strong> Jane Smith</p>
+    <p><strong>Political Affiliation:</strong> Independent</p>
+    <p><strong>Email:</strong> <a href="mailto:jane.smith@example.com" style="color: black;">jane.smith@example.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+15551234567" style="color: black;">+1 (555) 123-4567</a></p>
+  </section>
+
+  <section style="border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem;">
+    <h2 style="margin-top: 0;">Questions About Location Forecaster?</h2>
+    <p>Email: <a href="mailto:info@example.com" style="color: black;">info@example.com</a></p>
+  </section>
+</main>
+{% endblock %}
